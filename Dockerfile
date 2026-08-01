@@ -8,9 +8,9 @@ WORKDIR /app
 # Copy application files
 COPY . /app
 
-# Default port
 ENV PORT=8080
 
 EXPOSE 8080
 
-CMD ["sh", "-c", "php -S 0.0.0.0:${PORT:-8080} -t web/"]
+# Auto-import database if needed, then start PHP web server
+CMD ["sh", "-c", "php -r '$h=getenv(\"DB_HOST\")?:\"mysql.railway.internal\"; $d=getenv(\"DB_NAME\")?:\"railway\"; $u=getenv(\"DB_USER\")?:\"root\"; $pw=getenv(\"DB_PASSWORD\")?:\"HmTTWnkfZxFBEmyxsDbeEzXzwRujZkNF\"; try { $p=new PDO(\"mysql:host=$h;dbname=$d\",$u,$pw); $p->exec(file_get_contents(\"database/yii2basic.sql\")); echo \"Database imported successfully!\\n\"; } catch(Exception $e) { echo $e->getMessage(); }' && php -S 0.0.0.0:${PORT:-8080} -t web/"]
