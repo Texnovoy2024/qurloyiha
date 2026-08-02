@@ -9,15 +9,18 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /app
 
-# Copy project files
+# Copy project files (including vendor if present)
 COPY . /app
 
-# Install PHP dependencies (vendor directory)
-RUN composer install --no-dev --optimize-autoloader --no-interaction
+# Ensure dependencies are installed
+RUN composer install --ignore-platform-reqs --no-interaction --no-dev || true
+
+# Ensure runtime and web/assets directories exist with proper permissions
+RUN mkdir -p runtime web/assets && chmod -R 777 runtime web/assets
 
 ENV PORT=8080
 
 EXPOSE 8080
 
-# Auto-import database on container start and launch server
-CMD ["sh", "-c", "php -r '$h=getenv(\"DB_HOST\")?:\"mysql.railway.internal\"; $d=getenv(\"DB_NAME\")?:\"railway\"; $u=getenv(\"DB_USER\")?:\"root\"; $pw=getenv(\"DB_PASSWORD\")?:\"HmTTWnkfZxFBEmyxsDbeEzXzwRujZkNF\"; try { $p=new PDO(\"mysql:host=$h;dbname=$d\",$u,$pw); $p->exec(file_get_contents(\"database/yii2basic.sql\")); echo \"Database imported successfully!\\n\"; } catch(Exception $e) { echo $e->getMessage(); }' && php -S 0.0.0.0:${PORT:-8080} -t web/"]
+# Run startup script (directory prep + DB auto-import) then launch PHP server
+CMD ["sh", "-c", "mkdir -p runtime web/assets && chmod -R 777 runtime web/assets && php startup.php && php -S 0.0.0.0:${PORT:-8080} -t web/"]

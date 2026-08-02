@@ -16,7 +16,7 @@ nbproject
 Thumbs.db
 
 # composer vendor dir
-/vendor
+# /vendor
 
 # composer itself is not needed
 composer.phar
@@ -36,8 +36,10 @@ tests/_support/_generated
 /.vagrant
 
 # runtime and generated assets (server will create these)
-/runtime
-/web/assets
+/runtime/*
+!/runtime/.gitkeep
+/web/assets/*
+!/web/assets/.gitkeep
 
 # environment config
 .env
