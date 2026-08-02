@@ -95,6 +95,8 @@ $config = [
         ],
         'db' => $db,
         'assetManager' => [
+            'basePath' => dirname(__DIR__) . '/web/assets',
+            'baseUrl'  => '/assets',
             'appendTimestamp' => true,
         ],
         'urlManager' => [
