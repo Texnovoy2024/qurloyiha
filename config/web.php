@@ -20,8 +20,10 @@ $config = [
         ],
     ],
     'aliases' => [
-        '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@bower'   => '@vendor/bower-asset',
+        '@npm'     => '@vendor/npm-asset',
+        '@webroot' => dirname(__DIR__) . '/web',
+        '@web'     => '',
     ],
     'on beforeAction' => function ($event) {
         if (Yii::$app && Yii::$app->db) {
