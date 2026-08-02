@@ -54,24 +54,24 @@ function SignupForm() {
   };
 
   return (
-    <div className="glass max-w-lg w-full rounded-3xl p-8 space-y-8 border border-slate-800 relative">
+    <div className="clean-card max-w-lg w-full p-8 space-y-8">
       <div className="text-center space-y-2">
-        <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mx-auto mb-3 border border-cyan-500/20">
+        <div className="w-12 h-12 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center mx-auto mb-3 border border-sky-100">
           <UserPlus className="w-6 h-6" />
         </div>
-        <h1 className="text-2xl font-bold text-white font-display">Ro'yxatdan O'tish</h1>
-        <p className="text-xs text-slate-400">Platformada ishtirok etish uchun rolingizni tanlang</p>
+        <h1 className="text-2xl font-bold text-slate-900 font-display">Ro'yxatdan O'tish</h1>
+        <p className="text-xs text-slate-500">Platformada ishtirok etish uchun rolingizni tanlang</p>
       </div>
 
       {/* Role Selector Tabs */}
-      <div className="grid grid-cols-2 gap-3 p-1.5 rounded-2xl bg-slate-900 border border-slate-800">
+      <div className="grid grid-cols-2 gap-2 p-1.5 rounded-xl bg-slate-100 border border-slate-200">
         <button
           type="button"
           onClick={() => setRole('scientist')}
-          className={`py-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition-all ${
+          className={`py-2.5 rounded-lg text-xs font-semibold flex items-center justify-center gap-2 transition-all ${
             role === 'scientist'
-              ? 'bg-cyan-500 text-slate-950 shadow-md'
-              : 'text-slate-400 hover:text-white'
+              ? 'bg-white text-sky-700 shadow-sm'
+              : 'text-slate-600 hover:text-slate-900'
           }`}
         >
           <GraduationCap className="w-4 h-4" />
@@ -81,10 +81,10 @@ function SignupForm() {
         <button
           type="button"
           onClick={() => setRole('company')}
-          className={`py-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition-all ${
+          className={`py-2.5 rounded-lg text-xs font-semibold flex items-center justify-center gap-2 transition-all ${
             role === 'company'
-              ? 'bg-cyan-500 text-slate-950 shadow-md'
-              : 'text-slate-400 hover:text-white'
+              ? 'bg-white text-sky-700 shadow-sm'
+              : 'text-slate-600 hover:text-slate-900'
           }`}
         >
           <Building2 className="w-4 h-4" />
@@ -93,7 +93,7 @@ function SignupForm() {
       </div>
 
       {message && (
-        <div className={`p-3.5 rounded-2xl text-xs font-medium text-center ${message.includes('Muvaffaqiyatli') ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' : 'bg-rose-500/20 text-rose-300 border border-rose-500/30'}`}>
+        <div className={`p-3.5 rounded-xl text-xs font-semibold text-center ${message.includes('Muvaffaqiyatli') ? 'bg-emerald-50 text-emerald-800 border border-emerald-200' : 'bg-rose-50 text-rose-800 border border-rose-200'}`}>
           {message}
         </div>
       )}
@@ -135,14 +135,14 @@ function SignupForm() {
           />
         </div>
 
-        <button type="submit" disabled={loading} className="w-full btn-primary py-3.5 text-xs font-bold rounded-2xl">
+        <button type="submit" disabled={loading} className="w-full btn-primary py-3.5 text-xs font-bold rounded-xl shadow-md">
           {loading ? 'Yaratilmoqda...' : 'Roʻyxatdan oʻtish'}
         </button>
       </form>
 
-      <div className="text-center text-xs text-slate-400 pt-4 border-t border-slate-800">
+      <div className="text-center text-xs text-slate-500 pt-4 border-t border-slate-100">
         Akkountingiz bormi?{' '}
-        <Link href="/login" className="text-cyan-400 hover:underline font-semibold">
+        <Link href="/login" className="text-sky-600 hover:underline font-semibold">
           Tizimga kirish
         </Link>
       </div>
@@ -152,8 +152,8 @@ function SignupForm() {
 
 export default function SignupPage() {
   return (
-    <div className="container py-16 flex items-center justify-center min-h-[85vh]">
-      <Suspense fallback={<div className="text-xs text-slate-400">Yuklanmoqda...</div>}>
+    <div className="max-w-lg mx-auto px-4 py-16 flex items-center justify-center min-h-[80vh]">
+      <Suspense fallback={<div className="text-xs text-slate-500">Yuklanmoqda...</div>}>
         <SignupForm />
       </Suspense>
     </div>

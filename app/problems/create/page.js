@@ -62,21 +62,21 @@ export default function CreateProblemPage() {
   };
 
   return (
-    <div className="container py-10 max-w-3xl space-y-8">
-      <Link href="/problems" className="inline-flex items-center gap-2 text-xs font-medium text-slate-400 hover:text-cyan-400 transition-colors">
+    <div className="max-w-3xl mx-auto px-4 py-10 space-y-8">
+      <Link href="/problems" className="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 hover:text-sky-600 transition-colors">
         <ArrowLeft className="w-4 h-4" />
         <span>Katalogga Qaytish</span>
       </Link>
 
-      <div className="glass rounded-3xl p-6 sm:p-10 space-y-8 border border-slate-800">
+      <div className="clean-card p-6 sm:p-10 space-y-8">
         <div>
-          <span className="text-xs font-semibold text-cyan-400 uppercase tracking-wider block mb-1">Korxonalar Uchun</span>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-white font-display">Yangi Muhandislik Masalasini E'lon Qilish</h1>
-          <p className="text-xs text-slate-400 mt-1">Olimlar va mutaxassislarga muammoingizni taqdim eting va eng yaxshi yechimni tanlang.</p>
+          <span className="text-xs font-bold text-sky-600 uppercase tracking-wider block mb-1">Korxonalar Uchun</span>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display">Yangi Muhandislik Masalasini E'lon Qilish</h1>
+          <p className="text-xs text-slate-500 mt-1">Olimlar va mutaxassislarga muammoingizni taqdim eting va eng yaxshi yechimni tanlang.</p>
         </div>
 
         {message && (
-          <div className={`p-4 rounded-2xl text-xs font-medium ${message.includes('muvaffaqiyatli') ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' : 'bg-rose-500/20 text-rose-300 border border-rose-500/30'}`}>
+          <div className={`p-4 rounded-xl text-xs font-semibold ${message.includes('muvaffaqiyatli') ? 'bg-emerald-50 text-emerald-800 border border-emerald-200' : 'bg-rose-50 text-rose-800 border border-rose-200'}`}>
             {message}
           </div>
         )}
@@ -152,7 +152,7 @@ export default function CreateProblemPage() {
             />
           </div>
 
-          <div className="pt-4 flex items-center justify-end gap-4">
+          <div className="pt-4 flex items-center justify-end gap-4 border-t border-slate-100">
             <Link href="/problems" className="btn-secondary py-3 px-6 text-xs">
               Bekor Qilish
             </Link>

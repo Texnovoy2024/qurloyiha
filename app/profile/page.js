@@ -33,23 +33,23 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="container py-10 max-w-3xl space-y-8">
-      <div className="glass rounded-3xl p-6 sm:p-10 border border-slate-800 space-y-8">
-        <div className="flex items-center gap-4 border-b border-slate-800 pb-6">
-          <div className="w-16 h-16 rounded-2xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-3xl border border-cyan-500/30">
+    <div className="max-w-3xl mx-auto px-4 py-10 space-y-8">
+      <div className="clean-card p-6 sm:p-10 space-y-8">
+        <div className="flex items-center gap-4 border-b border-slate-100 pb-6">
+          <div className="w-16 h-16 rounded-2xl bg-sky-600 text-white flex items-center justify-center font-bold text-3xl shadow-md">
             {user.username[0]?.toUpperCase() || 'U'}
           </div>
           <div>
-            <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800 uppercase">
+            <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-sky-100 text-sky-800 uppercase border border-sky-200">
               {user.role}
             </span>
-            <h1 className="text-2xl font-bold text-white font-display mt-1">{user.username}</h1>
-            <p className="text-xs text-slate-400">{user.email}</p>
+            <h1 className="text-2xl font-bold text-slate-900 font-display mt-1">{user.username}</h1>
+            <p className="text-xs text-slate-500">{user.email}</p>
           </div>
         </div>
 
         {saved && (
-          <div className="p-3.5 rounded-2xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-medium text-center">
+          <div className="p-3.5 rounded-xl bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-semibold text-center">
             Profil ma'lumotlari muvaffaqiyatli saqlandi!
           </div>
         )}
@@ -117,8 +117,8 @@ export default function ProfilePage() {
             />
           </div>
 
-          <div className="pt-4 flex justify-end">
-            <button type="submit" className="btn-primary py-3 px-8 text-xs font-bold">
+          <div className="pt-4 flex justify-end border-t border-slate-100">
+            <button type="submit" className="btn-primary py-3 px-8 text-xs font-bold shadow-md">
               <Save className="w-4 h-4" />
               <span>Ma'lumotlarni Saqlash</span>
             </button>

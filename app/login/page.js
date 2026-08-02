@@ -43,18 +43,18 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="container py-16 flex items-center justify-center min-h-[80vh]">
-      <div className="glass max-w-md w-full rounded-3xl p-8 space-y-8 border border-slate-800 relative">
+    <div className="max-w-md mx-auto px-4 py-16 flex items-center justify-center min-h-[75vh]">
+      <div className="clean-card w-full p-8 space-y-8">
         <div className="text-center space-y-2">
-          <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mx-auto mb-3 border border-cyan-500/20">
+          <div className="w-12 h-12 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center mx-auto mb-3 border border-sky-100">
             <LogIn className="w-6 h-6" />
           </div>
-          <h1 className="text-2xl font-bold text-white font-display">Tizimga Kirish</h1>
-          <p className="text-xs text-slate-400">QurilishLoyiha platformasiga xush kelibsiz</p>
+          <h1 className="text-2xl font-bold text-slate-900 font-display">Tizimga Kirish</h1>
+          <p className="text-xs text-slate-500">QurilishLoyiha platformasiga xush kelibsiz</p>
         </div>
 
         {message && (
-          <div className={`p-3.5 rounded-2xl text-xs font-medium text-center ${message.includes('Xush') ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' : 'bg-rose-500/20 text-rose-300 border border-rose-500/30'}`}>
+          <div className={`p-3.5 rounded-xl text-xs font-semibold text-center ${message.includes('Xush') ? 'bg-emerald-50 text-emerald-800 border border-emerald-200' : 'bg-rose-50 text-rose-800 border border-rose-200'}`}>
             {message}
           </div>
         )}
@@ -84,14 +84,14 @@ export default function LoginPage() {
             />
           </div>
 
-          <button type="submit" disabled={loading} className="w-full btn-primary py-3.5 text-xs font-bold rounded-2xl">
+          <button type="submit" disabled={loading} className="w-full btn-primary py-3.5 text-xs font-bold rounded-xl shadow-md">
             {loading ? 'Tekshirilmoqda...' : 'Kirish'}
           </button>
         </form>
 
-        <div className="text-center text-xs text-slate-400 pt-4 border-t border-slate-800">
+        <div className="text-center text-xs text-slate-500 pt-4 border-t border-slate-100">
           Akkountingiz yo'qmi?{' '}
-          <Link href="/signup" className="text-cyan-400 hover:underline font-semibold">
+          <Link href="/signup" className="text-sky-600 hover:underline font-semibold">
             Ro'yxatdan o'tish
           </Link>
         </div>
